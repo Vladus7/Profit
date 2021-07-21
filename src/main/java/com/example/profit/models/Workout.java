@@ -1,5 +1,8 @@
 package com.example.profit.models;
 
+//import com.example.profit.models.user.Administrator;
+//import com.example.profit.models.user.Trainer;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -10,7 +13,7 @@ import java.util.List;
 @Data
 public class Workout {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
     private String descriptions;
@@ -18,6 +21,14 @@ public class Workout {
     private String review;
     @OneToMany(mappedBy="workout", fetch = FetchType.EAGER)
     private List<Exercise> exercises;
+//    @ManyToOne
+//    @JsonIgnore
+//    @JoinColumn(name="administrator_id", nullable=true)
+//    private Administrator administrator;
+//    @ManyToOne
+//    @JsonIgnore
+//    @JoinColumn(name="trainer_id", nullable=true)
+//    private Trainer trainer;
 
     public Workout() {
     }

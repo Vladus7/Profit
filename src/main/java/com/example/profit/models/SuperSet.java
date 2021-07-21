@@ -11,7 +11,7 @@ import java.util.List;
 @Data
 public class SuperSet {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private double weight;
     private int resp;

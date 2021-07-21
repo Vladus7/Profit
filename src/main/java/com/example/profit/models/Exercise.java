@@ -10,7 +10,7 @@ import java.util.List;
 @Entity
 public class Exercise {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
     @OneToMany(mappedBy="exercise", fetch = FetchType.EAGER)

@@ -22,7 +22,7 @@ import java.util.List;
 
 //import javax.validation.Valid;
 
-@RestController
+//@RestController
 public class PostController {
 
 //    @Autowired
