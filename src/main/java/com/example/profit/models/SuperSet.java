@@ -1,15 +1,23 @@
 package com.example.profit.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
+@Entity
 @Data
 public class SuperSet {
+    @Id
+    @GeneratedValue
     private long id;
     private double weight;
     private int resp;
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name="exercise_id", nullable=false)
     private Exercise exercise;
 
     public SuperSet() {

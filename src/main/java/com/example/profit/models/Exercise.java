@@ -1,14 +1,23 @@
 package com.example.profit.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
+import javax.persistence.*;
 import java.util.List;
 
 @Data
+@Entity
 public class Exercise {
+    @Id
+    @GeneratedValue
     private long id;
     private String name;
+    @OneToMany(mappedBy="exercise", fetch = FetchType.EAGER)
     private List<SuperSet> superSets;
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name="workout_id", nullable=false)
     private Workout workout;
 
     public Exercise() {

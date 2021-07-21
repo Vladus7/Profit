@@ -2,16 +2,21 @@ package com.example.profit.models;
 
 import lombok.Data;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
+@Entity
 @Data
 public class Workout {
+    @Id
+    @GeneratedValue
     private long id;
     private String name;
     private String descriptions;
     private LocalDate date;
     private String review;
+    @OneToMany(mappedBy="workout", fetch = FetchType.EAGER)
     private List<Exercise> exercises;
 
     public Workout() {
